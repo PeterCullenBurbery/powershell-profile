@@ -21,8 +21,11 @@ function prompt {
     # Get full username (domain\username)
     $full_username = "$env:USERDOMAIN\$env:USERNAME"
 
+    # Get PowerShell version
+    $powershell_version = $PSVersionTable.PSVersion.ToString()
+
     # Print full info line
-    Write-Host "$timestamp $iana_tz $iso_week_date $iso_ordinal_date $ip_address $hostname $full_username" -ForegroundColor Green
+    Write-Host "$timestamp $iana_tz $iso_week_date $iso_ordinal_date $ip_address $hostname $full_username Powershell $powershell_version" -ForegroundColor Green
 
     return "$PWD> "
 }
@@ -41,8 +44,11 @@ $ip_address = $env:local_ipv4_address
 $hostname = $env:COMPUTERNAME
 $full_username = "$env:USERDOMAIN\$env:USERNAME" -replace '\\', ' backslash '
 
+# Get PowerShell version
+$powershell_version = $PSVersionTable.PSVersion.ToString()
+
 # Compose filename
-$log_name = "$timestamp $iana_tz $iso_week_date $iso_ordinal_date $ip_address $hostname $full_username"
+$log_name = "$timestamp $iana_tz $iso_week_date $iso_ordinal_date $ip_address $hostname $full_username Powershell $powershell_version"
 $safe_log_name = $log_name -replace '/', ' slash '
 
 $log_directory = "C:\terminal-logs\powershell-005-logs"
