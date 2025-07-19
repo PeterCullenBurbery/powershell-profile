@@ -1,7 +1,5 @@
 # This is a comment
 
-Import-Module C:\powershell-modules\MyModule\MyModule.psm1
-
 function prompt {
     $now = Get-Date
 
