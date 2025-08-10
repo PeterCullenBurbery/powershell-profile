@@ -49,7 +49,7 @@ $powershell_version = $PSVersionTable.PSVersion.ToString()
 $log_name = "$timestamp $iana_tz $iso_week_date $iso_ordinal_date $ip_address $hostname $full_username Powershell $powershell_version"
 $safe_log_name = $log_name -replace '/', ' slash '
 
-$log_directory = "C:\terminal-logs\powershell-005-logs"
+$log_directory = "C:\GitHub-repositories\terminal-logs\powershell-005-logs"
 if (!(Test-Path $log_directory)) {
     New-Item -ItemType Directory -Path $log_directory | Out-Null
 }
